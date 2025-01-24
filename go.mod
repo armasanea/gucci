@@ -1,4 +1,4 @@
-module github.com/noqcks/gucci
+module github.com/armasanea/gucci
 
 go 1.22
 
