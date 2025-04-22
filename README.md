@@ -15,7 +15,7 @@ $ go get github.com/noqcks/gucci
 Or you can just download the binary and move it into your `PATH`:
 
 ```
-VERSION=1.6.13
+VERSION=1.8.0
 wget -q "https://github.com/noqcks/gucci/releases/download/v${VERSION}/gucci-v${VERSION}-darwin-amd64"
 chmod +x gucci-v${VERSION}-darwin-amd64
 mv gucci-v${VERSION}-darwin-amd64 /usr/local/bin/gucci
@@ -75,6 +75,12 @@ Pass it into `gucci` with `-f` or `--vars-file`:
 
 ```bash
 $ gucci -f vars.yaml template.tpl
+```
+
+Multiple variables files can be provided, and will be merged in the order specified (later files override values from earlier files):
+
+```bash
+$ gucci -f base_vars.yaml -f override_vars.yaml template.tpl
 ```
 
 #### Environment Variables
@@ -252,8 +258,7 @@ server server2.com
 Setup:
 
 ```bash
-go get github.com/noqcks/gucci
-go get github.com/onsi/ginkgo/ginkgo
+go get github.com/onsi/ginkgo/v2/ginkgo
 go get github.com/onsi/gomega
 ```
 
